@@ -1,4 +1,5 @@
 import pygame
+from player import *
 from constants import *
 
 def main():
@@ -6,6 +7,7 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
     fps = pygame.time.Clock()
+    player = Player(SCREEN_WIDTH/ 2, SCREEN_HEIGHT / 2)
     dt = 0
 
     while True:
@@ -14,6 +16,7 @@ def main():
                 return
 
         screen.fill("black")
+        player.draw(screen)
         pygame.display.flip()
         dt = fps.tick(60) / 1000
 
